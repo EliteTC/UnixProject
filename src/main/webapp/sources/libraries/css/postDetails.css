@@ -1,0 +1,49 @@
+.font-serif{
+ font-family: 'Source Serif Pro', serif;
+}
+body{ 
+    background-color: white;
+}
+#myCarousel{
+    padding: 0; 
+    width: 100%;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none;
+}
+#divforposts{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    height:150px;
+    border:none;
+    overflow-y: scroll;
+}
+
+.descriptiontext{
+    display: inline-block;
+    width: 100%;
+}
+.center{
+    margin: 0;
+}
+
+.carousel-inner .item img{
+     height: 450px;
+     margin: auto;    
+}
+.glyphicon-remove,.glyphicon-pencil{
+    margin: 5px;
+    float: right;
+    font-size: 20px;
+}
+@media screen and (max-width: 500px) {
+    .carousel-inner .item img{
+        height: 200px;
+    }
+    .glyphicon-remove,.glyphicon-pencil{
+        font-size: 15px;
+    }
+    
+}

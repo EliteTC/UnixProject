@@ -1,0 +1,28 @@
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    background-color: rgba(0,0,0,0.4);
+    z-index: 2; /* Sit on top */
+    left: 0;
+    top:0;
+    overflow: auto; /* Enable scroll if needed */
+    padding-top: 70px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    padding: 20px 30px 20px 30px;
+    background-color: #fefefe;
+    margin: 70px auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+}
+@media screen and (max-width: 768px) {
+    .modal-content{
+        width: 70%;
+    }
+
+}
+.paddingB{
+    padding-bottom: 30px;
+}

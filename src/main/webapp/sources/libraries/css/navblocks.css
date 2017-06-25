@@ -1,0 +1,115 @@
+body{
+    background-color: white;
+    overflow-x: hidden;
+}
+
+.navbar-nav {
+  float: none;
+  text-align: center;
+}
+nav{
+    z-index: 2;
+    padding: 10px;
+    height: 80px;
+    width: 100%;
+}
+.navbar,.navbar-toggle{
+    background-color: rgb(72,72,72); 
+    border-radius: 0;
+}
+.navbar-collapse{
+    background-color: rgba(72,72,72,0.9);
+}
+@media(max-width: 1208px){
+    .container-fluid { width: 100%; padding: 0; margin: 0; }
+}
+
+@media (min-width: 768px) {
+  .navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+  }
+
+}
+@media screen and (max-width: 886px) {
+.registertext{
+display: none;
+}
+    span.glyphicon-user{
+        display: none;
+    }
+}
+.main{
+     margin-top: -30px;
+}
+.firsblock{
+                                          /*  background-color: rgb(147,190,199);
+                                            box-shadow: 0px 0px 10px 2px rgb(147,190,199); */
+   /* background-color: rgb(116, 179, 188);*/
+     border-radius: 5px;
+    /*background-color:#1DD2AF;*/
+    background-color: rgb(134,88,29);
+    
+ /*  background-color: rgb(148,147,67); */
+    box-shadow: 0px 0px 10px 2px rgb(134,88,29); 
+     margin-top: 5px;
+     padding: 10px;
+     padding-bottom: 25px;
+}
+.secondblock{
+    background-color: white;
+    box-shadow: 0px 0px 10px 2px  white;
+    padding: 0 10 25 10px;
+    border-top: 1px solid black;
+}
+.thirdblock{
+    background-color: rgb(236,218,172);
+    box-shadow: 0px 0px 10px 2px  rgb(236,218,172);
+   padding: 0 10 25 10px;
+    border-top: 1px solid black;
+}
+.footer{
+    background-color: rgb(72,72,72);
+   padding: 5px;
+    margin-bottom: 0;
+    color: white;
+}
+#incorrectpass{
+    margin: 5px;
+    display: none;
+}
+
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: white; /* Set a background color */
+   /* .shadow */
+   -moz-box-shadow:    inset 0 0 10px rgb(72,72,72);
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+
+    color: rgb(72,72,72); /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+  border-radius: 50%; /* circle */
+}
+
+#myBtn:hover {
+    background-color:  	rgb(128,128,128); /* Add a dark-grey background on hover */
+}
+@media screen and (max-width: 768px) {
+#myBtn{
+    position: static;
+    float: right; 
+}
+    
+}
+.fontsize{
+    font-size: 25px;
+}

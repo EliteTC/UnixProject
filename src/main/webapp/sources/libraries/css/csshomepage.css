@@ -1,0 +1,89 @@
+.font-serif{
+ font-family: 'Source Serif Pro', serif;
+}
+
+blockquote{
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: 30px;
+   border-left: 5px solid rgb(148,147,67); 
+    color: white;
+}
+ .source{
+    color:rgb(148,147,67); 
+}
+.white{
+    color: white;
+}
+.black{
+    color: black;
+}
+#llinkoncreae{
+    color: rgb(134,88,29);
+}
+
+a:hover{
+    text-decoration: none;
+}
+.centercsshome{
+    margin: 0;
+}
+
+#text-carousel{
+  z-index: 1;
+  position: absolute;
+  margin-top: -40%;
+  height: 200px; 
+  width: 100%;
+}
+.carousel-control.left, .carousel-control.right {
+    background-image: none;
+}
+.carousel-indicators li{
+    background-color: rgb(72,72,72);
+    border: black;
+}
+.carousel-indicators .active {
+    background-color: rgb(56,56,56);
+}
+.carousel-indicators{
+    margin-bottom: -100px;
+}
+
+.mainimage{
+    width: 100%;
+
+}
+@media screen and (max-width: 1240px) {
+    .carousel-indicators{
+   
+        display: none; 
+    }
+}
+
+@media screen and (max-width: 1100px) {
+blockquote{
+font-size: 25px;
+    border-left: none;
+}
+}
+  @media screen and (max-width: 900px) {
+blockquote{
+font-size: 20px;
+     border-left: none;
+}
+       .paragraph{
+            font-size: 15px;
+        }
+       
+}
+    @media screen and (max-width: 500px) {
+   
+blockquote{
+font-size: 15px;
+     border-left: none;
+}
+}
+     
+
+
