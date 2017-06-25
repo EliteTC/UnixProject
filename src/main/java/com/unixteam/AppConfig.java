@@ -21,8 +21,10 @@ public class AppConfig {
         driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
         driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/unixproject");
         driverManagerDataSource.setUsername("root");
-        //driverManagerDataSource.setPassword("");
-        driverManagerDataSource.setPassword("1111");
+
+        driverManagerDataSource.setPassword("");
+        //driverManagerDataSource.setPassword("1111");
+
         return driverManagerDataSource;
     }
 }

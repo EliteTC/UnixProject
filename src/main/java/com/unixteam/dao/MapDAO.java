@@ -34,8 +34,10 @@ public class MapDAO {
     }
     private static final String GET_ALL_MAPS = "SELECT * FROM `map`";
     private static final String GET_BY_ID = "SELECT * FROM `map` WHERE post_id=?";
+
     private static final String INSERT_MAP   = "INSERT INTO `map` values(?,?,?,?)";
     private static final String UPDATE_MAP   = "UPDATE `map` SET placeName = ? , x_coordinate = ? , y_coordinate = ? WHERE post_id = ?";
+
     private static final String DELETE_MAP   = "DELETE FROM `map` WHERE post_id = ?";
 
 
@@ -54,6 +56,7 @@ public class MapDAO {
 
     public void updateMap(int post_id,String placeName,double x_coordinate,double y_coordinate){
         jdbcTemplate.update(UPDATE_MAP,placeName,x_coordinate,y_coordinate,post_id);
+
     }
 
     public void deleteMap(int id){

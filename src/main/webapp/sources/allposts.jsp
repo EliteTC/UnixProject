@@ -18,11 +18,9 @@
 
 <div class="row main">
 
-
     <div class="mapa">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d325515.6816494169!2d30.252504313194645!3d50.40213675084257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf4ee15a4505%3A0x764931d2170146fe!2z0JrQuNGX0LI!5e0!3m2!1suk!2sua!4v1495878890403" width="100%" height="450" frameborder="0" style="border:0" ></iframe>
     </div>
-
 
     <hr>
     <div class="col-xs-10 col-xs-offset-1">
@@ -51,6 +49,7 @@
             <div class="col-md-6  center" id="post">
                 <div class="thumbnail">
                     <div class="ttl"><h2>${post.title}</h2></div>
+
                     <c:forEach items="${post.images}" var="img">
                         <div class="photoofplace">
                             <img src="${img.url}" alt="" class="img-responsive center">

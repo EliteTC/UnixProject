@@ -43,6 +43,7 @@
 			href="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />"
 			type="text/css" rel="stylesheet" />
 
+
 	<link href="<c:url value="https://fonts.googleapis.com/css?family=Source+Serif+Pro" />" rel="stylesheet">
 
 	<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
@@ -53,6 +54,7 @@
 	<script src="https://d3js.org/d3.v4.js"></script>
 
 	<script type="text/javascript" src="http://botmonster.com/jquery-bootpag/jquery.bootpag.js"></script>
+
 
 
 </head>
@@ -85,6 +87,7 @@
 				<sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
 					<li ><a href="#" class="black" ><span class="glyphicon glyphicon-user" aria-hidden="true"/> <sec:authentication property="principal.username"/></a></li>
 					<li ><a href="<c:url value="/logout" />" class="black">  Sign out</a></li>
+
 				</sec:authorize>
 			</ul>
 		</div>
@@ -128,7 +131,5 @@
 		<button type="submit" class="paddingB form-control btn btn-success btn-lg text-center" onclick="sendtoDB()">Join now</button>
 
 	</form>
-
-
 
 </div>
