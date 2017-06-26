@@ -41,7 +41,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout")
+                .logoutSuccessUrl("/")
                 .and()
                 .exceptionHandling().accessDeniedPage("/403")
                 .and()

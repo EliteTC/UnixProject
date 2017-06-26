@@ -1,6 +1,7 @@
 package com.unixteam.controller;
 
 
+import com.unixteam.service.PostService;
 import com.unixteam.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -19,6 +20,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
+
     @RequestMapping(value = "/users" , method = RequestMethod.GET)
     public ModelAndView getUsers() throws SQLException {
         ModelAndView model = new ModelAndView();
@@ -31,6 +33,13 @@ public class UserController {
         model.addObject("users",userService.getAllUsers());
         model.setViewName("users");
         return model;
+    }
+
+    @RequestMapping(value = "/add-user",method = RequestMethod.POST)
+    @ResponseBody
+    public String addUser(@RequestParam String username, @RequestParam String login, @RequestParam String password) throws SQLException, ClassNotFoundException {
+        userService.addUser(username,login,password);
+        return "Registered successfully";
     }
 
     @RequestMapping(value = "/user/{id}",method = RequestMethod.GET)

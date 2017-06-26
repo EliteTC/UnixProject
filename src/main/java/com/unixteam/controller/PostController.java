@@ -4,7 +4,9 @@ package com.unixteam.controller;
 import com.unixteam.service.PostService;
 import com.unixteam.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,6 +29,12 @@ public class PostController {
     @RequestMapping(value = "/allposts", method = RequestMethod.GET)
     public ModelAndView getAllPosts() throws SQLException {
         ModelAndView model = new ModelAndView();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (!(auth instanceof AnonymousAuthenticationToken)) {
+            String username = auth.getName();
+            int personId = userService.getUserIdByLogin(username);
+            model.addObject("userId",personId);
+        }
         model.addObject("posts",postService.getAllPosts());
 
         model.setViewName("allposts");
@@ -35,12 +43,12 @@ public class PostController {
     @RequestMapping(value = "/post/{id}")
     public ModelAndView getGood(@PathVariable int id) throws SQLException {
         ModelAndView model = new ModelAndView();
-      /*  Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             String login = auth.getName();
             int personId = userService.getUserIdByLogin(login);
             model.addObject("userId", personId);
-        }*/
+        }
         model.addObject("post",postService.getPostById(id));
         model.setViewName("postDetails");
         return model;

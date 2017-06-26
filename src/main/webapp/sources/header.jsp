@@ -69,17 +69,18 @@
 
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-center">
-				<li ><a href="/sources/home.jsp" target="_top"><h4 class=" fontsize">Home</h4></a></li>
+				<li ><a href="/home" target="_top"><h4 class=" fontsize">Home</h4></a></li>
 				<sec:authorize access="hasRole('ROLE_USER')">
-				<li><a href="/sources/myPosts.jsp" target="_top"><h4 class=" fontsize">My posts</h4></a></li>
+				<li><a href="/user/${userId}" target="_top"><h4 class=" fontsize">My posts</h4></a></li>
 				</sec:authorize>
-				<li><a href="/sources/allposts.jsp" target="_top"><h4 class=" fontsize">Blog</h4></a></li>
+				<li><a href="/allposts" target="_top"><h4 class=" fontsize">Blog</h4></a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right black">
 				<li ><a href="#" target="_self" class="black" onclick="document.getElementById('loginForm').style.display='block';document.getElementById('text-carousel').style.display='none'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Sign in</a></li>
-				<li ><a href="#SINGOUT" class="black"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Sign out</a></li>
-
+				<sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
+				<li ><a href="<c:url value="/logout" />" class="black"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Sign out</a></li>
+				</sec:authorize>
 			</ul>
 		</div>
 	</div>
@@ -87,15 +88,15 @@
 </nav>
 <div class="container-fluid modal col-sm-12 col-xs-12"  id="loginForm"  >
 
-	<form class="center modal-content" method="post" action="\" >
+	<form class="center modal-content"  action="<c:url value='/login' />" method='POST' >
 		<span onclick="document.getElementById('loginForm').style.display='none'" class="close" title="Close Modal">&times;</span>
 		<div class="form-group ">
-			<label for="usernameL">Username</label>
-			<input type="text" class="form-control" id="usernameL" name="usernameL" placeholder="Username">
+			<label for="usernameL">Login</label>
+			<input type="text" class="form-control" id="usernameL" name="login" placeholder="Username">
 		</div>
 		<div class="form-group ">
-			<label for="passwordL">Pasword</label>
-			<input type="password" class="form-control" id="passwordL" placeholder="Password" name="passwordL">
+			<label for="passwordL">Password</label>
+			<input type="password" class="form-control" id="passwordL" placeholder="Password" name="password">
 		</div>
 		<button id="logInbtn" type="submit" class="paddingB form-control btn btn-success btn-lg text-center">Sign in</button>
 		<div><br><p>Not registered yet?<a href="#" id="llinkoncreae" target="_self" class="black" onclick="document.getElementById('registrationForm').style.display='block'" style="width:auto;"> Create an account.</a></p></div>
@@ -119,7 +120,7 @@
 			<label for="passwordR">Pasword</label>
 			<input type="password" class="form-control" id="passwordR" name="passwordR" placeholder="Password">
 		</div>
-		<button type="submit" class="paddingB form-control btn btn-success btn-lg text-center" onclick="sendtoDB()">Join now</button>
+		<button id="adduser" type="submit" class="paddingB form-control btn btn-success btn-lg text-center">Join now</button>
 
 	</form>
 

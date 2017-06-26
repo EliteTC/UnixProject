@@ -14,6 +14,10 @@ public class UserService {
     @Autowired
     private UserDAO userDAO;
 
+    public void addUser(String username,String login,String password){
+        userDAO.addUser(username,login,password);
+    }
+
     public List<User> getAllUsers() throws SQLException {
         return userDAO.getAllUsers();
     }

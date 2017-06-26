@@ -6,18 +6,41 @@
 
 $("#addpostbuttonsubmit").click(function () {
     console.log("In js");
+    console.log($("#addpostbuttonsubmit").val());
     $.ajax({
         url: "/add-post",
         type: "POST",
         data: {
             "title": $("#placeName").val(),
             "description": $("#description").val(),
-            "author_id": 1
+            "author_id": $("#addpostbuttonsubmit").val()
         },
         success: function (data) {
             console.log(data);
             $('#addPostForm').fadeOut();
         //    location.reload();
+        },
+        error: function (textStatus) {
+            console.log(textStatus);
+        }
+    });
+});
+
+$("#adduser").click(function () {
+    console.log("In js");
+    console.log($("#adduser").val());
+    $.ajax({
+        url: "/add-user",
+        type: "POST",
+        data: {
+            "username": $("#usernameR").val(),
+            "login": $("#login").val(),
+            "password": $("#passwordR").val()
+        },
+        success: function (data) {
+            console.log(data);
+            $('#registrationForm').fadeOut();
+              location.reload();
         },
         error: function (textStatus) {
             console.log(textStatus);
@@ -42,7 +65,7 @@ $(".removepost").click(function(event){
     });
 });
 
-$(".editpostbuttonsubmit").click(function(event){
+$("#editpostbuttonsubmit").click(function(event){
     $.ajax({
         url: "/edit-post",
         type: "POST",
@@ -50,7 +73,7 @@ $(".editpostbuttonsubmit").click(function(event){
             "id":this.id,
             "title": $("#placeNameEdit").val(),
             "description": $("#descriptionEdit").val(),
-            "author_id": 1
+            "author_id": $("#editpostbuttonsubmit").val()
         },
         success: function (data) {
             console.log(data);
