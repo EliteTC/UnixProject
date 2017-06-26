@@ -12,12 +12,15 @@
 <link rel="stylesheet" type="text/css"
       href="<c:url value="/sources/libraries/css/LoginAdmin.css"/>">
 <div class="row main">
+<%--<c:if test = "${not empty post.map}">--%>
     <div class="mapa">
         <iframe src="" width="100%" height="450" frameborder="0" style="border:0" ></iframe>
     </div> <hr>
-
+<%--</c:if>--%>
 <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
-    <c:if test = "${post.author}===${userId}">
+    <c:set var = "author" value = "${post.author.id}"/>
+    <c:set var = "userid" value = "${userId}"/>
+    <c:if test = "${author eq userid}">
     <div class="col-sm-10 col-sm-offset-1 col-xs-12 ">  <span class="glyphicon glyphicon-remove removepost" id="${post.id}" title="Remove post"> </span>
         <span class="glyphicon glyphicon-pencil editpost"  title="Edit post" onclick="document.getElementById('editPostForm').style.display='block'"> </span></div>
    </c:if>
@@ -27,9 +30,10 @@
 
         <h4 class="text-center"><b>${post.title}</b></h4>
         <p>${post.description}</p>
+        <p>${post.date}</p>
 
         <hr><h4 class="text-center"><b>GALLERY</b></h4>
-
+<c:if test = "${not empty post.images}">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -69,6 +73,7 @@
             </a>
 
         </div>
+</c:if>
 
     </div>
 
@@ -76,8 +81,8 @@
     </div>
 
 <div class="container modal col-xs-12" id="editPostForm">
-    <form method="post" action="/" class="center modal-content">
-        <span onclick="document.getElementById('editPostForm').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <form  class="center modal-content">
+        <span onclick="document.getElementById('editPostForm').style.display='none'" class="close" title="Close EditFrom">&times;</span>
         <div class="form-group ">
             <label for="placeNameEdit">Name of place</label>
             <input type="text" class="form-control" id="placeNameEdit" placeholder="name of place" value="${post.title}">
@@ -90,20 +95,25 @@
             <textarea class="form-control description" id="descriptionEdit" rows="3" placeholder="description">${post.description}</textarea>
         </div>
         <div class="form-group" id="ADDURL">
-            <%! int url; %>
-            <%for ( url = 11; url <= 13; url++){ %>
-            <label class="labeimage" for="<%= url %>">image: </label>
-            <input type="text" class="form-control" id="<%= url %>" placeholder="image url <%= url %>">
+            <%! int urlcounter; %>
+
+            <%for ( urlcounter = 11; urlcounter <= 13; urlcounter++){ %>
+
+                <label class="labeimage" for="<%=urlcounter%>">image: </label>
+            <input type="text" class="form-control" id="<%=urlcounter%>" placeholder="image url <%=urlcounter%>"/>
+
             <%}%>
-            <button class="btn btn-default moreurlbnt" type="button" id="addphotoButton">Add one more url</button>
+           <button class="btn btn-default moreurlbnt" type="button" id="addphotoButton">Add one more url</button>
             <div id="moreurl">
-                <%for ( url = 14; url <= 20 ; url++){ %>
-                <label class="labeimage" for="<%= url %>">image: </label>
-                <input type="text" class="form-control"  id="<%= url %>" placeholder="image url <%= url %>">
+                <%for ( urlcounter = 14; urlcounter <= 20 ; urlcounter++){ %>
+                <label class="labeimage" for="<%= urlcounter %>">image: </label>
+
+                <input  type="text" class="form-control"  id="<%= urlcounter %>" placeholder="image url <%= urlcounter %>"/>
                 <%}%>
+
             </div>
         </div>
-        <button value="${userId}" id="editpostbuttonsubmit" class="btn btn-lg btn-default" type="button" name="editpostsubmit">Edit post</button>
+        <button value="${post.id}" id="editpostbuttonsubmit" class="btn btn-lg btn-default" type="button" name="editpostsubmit">Edit post</button>
     </form>
 </div>
     <%@include file="footer.jsp"%>

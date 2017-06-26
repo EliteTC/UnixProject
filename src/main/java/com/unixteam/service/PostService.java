@@ -19,6 +19,12 @@ public class PostService {
     public List<Post> getAllPosts() throws SQLException{
         return postDAO.getAllPosts();
     }
+    public List<Post> getAllPostsDescDate() throws SQLException{
+        return postDAO.getAllPostsDescDate();
+    }
+    public List<Post> getAllPostsAscDate() throws SQLException{
+        return postDAO.getAllPostsAscDate();
+    }
     public Post getPostById(int postId) throws  SQLException{
         return postDAO.getPostById(postId);
     }

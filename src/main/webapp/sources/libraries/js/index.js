@@ -11,6 +11,7 @@
 var modalLog = document.getElementById('loginForm');
 var modalReg = document.getElementById('registrationForm');
 var modalAddPost = document.getElementById('addPostForm');
+var modalEditPost = document.getElementById('editPostForm');
 
 var carusel = document.getElementById('text-carousel');
 
@@ -27,6 +28,9 @@ window.onclick = function(event) {
     if (event.target == modalReg) {
         modalReg.style.display = "none";
         carusel.style.display = "block";
+    }
+    if (event.target == modalEditPost) {
+        modalEditPost.style.display = "none";
     }
 }
 

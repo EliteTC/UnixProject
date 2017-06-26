@@ -18,7 +18,7 @@ $("#addpostbuttonsubmit").click(function () {
         success: function (data) {
             console.log(data);
             $('#addPostForm').fadeOut();
-        //    location.reload();
+            location.reload();
         },
         error: function (textStatus) {
             console.log(textStatus);
@@ -40,7 +40,7 @@ $("#adduser").click(function () {
         success: function (data) {
             console.log(data);
             $('#registrationForm').fadeOut();
-              location.reload();
+            window.location.replace("/");
         },
         error: function (textStatus) {
             console.log(textStatus);
@@ -66,14 +66,24 @@ $(".removepost").click(function(event){
 });
 
 $("#editpostbuttonsubmit").click(function(event){
+    console.log( "DDDDDDDDDDDD" + $("#11").val());
     $.ajax({
         url: "/edit-post",
         type: "POST",
         data: {
-            "id":this.id,
+            "id":$("#editpostbuttonsubmit").val(),
             "title": $("#placeNameEdit").val(),
             "description": $("#descriptionEdit").val(),
-            "author_id": $("#editpostbuttonsubmit").val()
+            "url":$("#11").val(),
+            "url2":$("#12").val(),
+            "url3":$("#13").val(),
+            "url4":$("#14").val(),
+            "url5":$("#15").val(),
+            "url6":$("#16").val(),
+            "url7":$("#17").val(),
+            "url8":$("#18").val(),
+            "url9":$("#19").val(),
+            "url10":$("#20").val()
         },
         success: function (data) {
             console.log(data);

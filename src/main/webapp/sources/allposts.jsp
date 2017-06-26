@@ -16,27 +16,28 @@
 
 <div class="row main">
 
-    <div class="mapa">
-        <iframe src="" width="100%" height="450" frameborder="0" style="border:0" ></iframe>
-    </div>
-
-    <hr>
-    <div class="col-xs-10 col-xs-offset-1">
-        <sec:authorize access="hasRole('ROLE_USER')">
-        <div class="addpostbutton">
-
-            <button id="addpostbutton" class="btn btn-lg btn-default" type="button" value="Add Post" name="addpost" onclick="document.getElementById('addPostForm').style.display='block'">Add post</button>
+        <div class="mapa">
+            <iframe src="" width="100%" height="450" frameborder="0" style="border:0" ></iframe>
         </div>
-       </sec:authorize>
-        <div class="btn-group" >
-            <button type="button" class="btn btn-default  btn-lg dropdown-toggle sortpost" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                Sorted by: <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a href="#">date (from old)</a></li>
-                <li><a href="#">date (from new)</a></li>
-            </ul>
-        </div>
+
+        <hr>
+        <div class="col-xs-10 col-xs-offset-1">
+            <sec:authorize access="hasRole('ROLE_USER')">
+            <div class="addpostbutton">
+                <button id="addpostbutton" class="btn btn-lg btn-default" type="button" value="Add Post" name="addpost" onclick="document.getElementById('addPostForm').style.display='block'">Add post</button>
+            </div>
+           </sec:authorize>
+            <%--
+            <div class="btn-group" >
+                <button type="button" class="btn btn-default  btn-lg dropdown-toggle sortpost" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                    Sorted by: <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">date (from old)</a></li>
+                    <li><a href="#">date (from new)</a></li>
+                </ul>
+            </div>
+            --%>
 
     </div>
 
@@ -52,8 +53,8 @@
                         <c:set var = "oneph" scope = "session" value = "${0*0}"/>
 
                         <c:forEach items="${post.images}" var="img">
+                            <div class="photoofplace">
                             <c:if test = "${oneph == 0}">
-                    <div class="photoofplace">
                             <img src="${img.url}" alt="" class="img-responsive center">
                             <c:set var = "oneph" scope = "session" value = "${1*1}"/>
                             </c:if>
@@ -78,13 +79,16 @@
             <label for="placeName">Name of place</label>
             <input type="text" class="form-control" id="placeName" placeholder="name of place">
         </div>
+        <%--place for map things
         <div class="form-group ">
             <iframe src="" width="100%" height="250" frameborder="0" style="border:0" ></iframe>
         </div>
+        --%>
         <div class="form-group ">
             <label for="description">Description</label>
             <textarea class="form-control description" id="description" rows="3" placeholder="description"></textarea>
         </div>
+        <%--
         <div class="form-group" id="ADDURL">
             <%! int url; %>
             <%for ( url = 1; url <= 3; url++){ %>
@@ -99,6 +103,7 @@
                 <%}%>
             </div>
         </div>
+        --%>
         <button id="addpostbuttonsubmit" class="btn btn-lg btn-default" type="button" value="${userId}" name="addpostsubmit">Add post</button>
     </form>
 </div>

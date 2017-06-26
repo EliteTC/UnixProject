@@ -12,6 +12,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +76,7 @@
 			<ul class="nav navbar-nav navbar-center">
 				<li ><a href="/home" target="_top"><h4 class=" fontsize">Home</h4></a></li>
 				<sec:authorize access="hasRole('ROLE_USER')">
-					<li><a href="/user/${userId}" target="_top"><h4 class=" fontsize">My posts</h4></a></li>
+					<li><a href="/myPosts" target="_top"><h4 class=" fontsize">My posts</h4></a></li>
 				</sec:authorize>
 				<li><a href="/allposts" target="_top"><h4 class=" fontsize">Blog</h4></a></li>
 			</ul>
@@ -115,7 +116,7 @@
 
 <div class="container modal col-sm-12 col-xs-12" id="registrationForm">
 
-	<form method="post" class="center modal-content">
+	<form class="center modal-content">
 		<span onclick="document.getElementById('registrationForm').style.display='none'" class="close" title="Close Modal">&times;</span>
 		<div class="form-group ">
 			<label for="usernameR">Username</label>

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.SQLException;
-
+import java.util.List;
 
 
 @RestController
@@ -37,8 +37,16 @@ public class UserController {
 
     @RequestMapping(value = "/add-user",method = RequestMethod.POST)
     @ResponseBody
+
     public String addUser(@RequestParam String username, @RequestParam String login, @RequestParam String password) throws SQLException, ClassNotFoundException {
+        List<String> logins = userService.getAllLogins();
+        for(String s: logins){
+            if(equals(login)){
+                return "login exists";
+            }
+        }
         userService.addUser(username,login,password);
+
         return "Registered successfully";
     }
 

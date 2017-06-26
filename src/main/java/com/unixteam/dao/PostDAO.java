@@ -54,15 +54,24 @@ public class PostDAO {
         }
     }
     private static final String GET_ALL_POSTS = "SELECT * FROM `post`";
+    private static final String GET_ALL_POSTS_ASC_DATE = "SELECT * FROM `post` ORDER BY date ASC ";
+    private static final String GET_ALL_POSTS_DESC_DATE = "SELECT * FROM `post` ORDER BY date DESC";
     private static final String GET_BY_ID = "SELECT * FROM `post` WHERE id=?";
     private static final String INSERT_POST   = "INSERT INTO `post` values(DEFAULT,?,?,?,?)";
     private static final String UPDATE_POST   = "UPDATE `post` SET title = ? , description = ? WHERE id = ?";
     private static final String DELETE_POST   = "DELETE FROM `post` WHERE id = ?";
-    private static final String GET_POSTS_FOR_USER = "SELECT * FROM `post` WHERE author_id = ?";
+    private static final String GET_POSTS_FOR_USER = "SELECT * FROM `post` WHERE author = ?";
 
 
     public List<Post> getAllPosts() throws  SQLException {
         return jdbcTemplate.query(GET_ALL_POSTS,new PostMapper());
+    }
+
+    public List<Post> getAllPostsAscDate() throws  SQLException {
+        return jdbcTemplate.query(GET_ALL_POSTS_ASC_DATE,new PostMapper());
+    }
+    public List<Post> getAllPostsDescDate() throws  SQLException {
+        return jdbcTemplate.query(GET_ALL_POSTS_DESC_DATE,new PostMapper());
     }
 
     public Post getPostById(int postId) throws  SQLException {

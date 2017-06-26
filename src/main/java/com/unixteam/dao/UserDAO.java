@@ -36,9 +36,16 @@ public class UserDAO {
     private static final String INSERT_USER = "INSERT INTO `user` values(DEFAULT,DEFAULT ,?,?,?)";
     private static final String GET_BY_ID = "SELECT * FROM `user` WHERE id=?";
     private static final String GET_ID_BY_LOGIN = "SELECT id from `user` WHERE login = ?";
+    private static final String GET_ALL_LOGINS = "SELECT login from `user`";
 
     public List<User> getAllUsers() throws  SQLException {
         return jdbcTemplate.query(GET_ALL_USERS,new UserMapper());
+    }
+    public List<String> getAllLogins() throws  SQLException {
+        return jdbcTemplate.query(GET_ALL_LOGINS, new RowMapper() {
+            public Object mapRow(ResultSet resultSet, int i) throws SQLException {
+                return resultSet.getString(1);
+            }});
     }
     public void addUser(String username,String login,String password){
         jdbcTemplate.update(INSERT_USER,username,login,password);
