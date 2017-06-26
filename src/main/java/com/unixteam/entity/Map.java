@@ -5,11 +5,20 @@ import java.io.Serializable;
 
 public class Map implements Serializable {
     private int post_id;
+    private String placeName;
     private double x_coordinate;
     private double y_coordinate;
 
     public Map(){
 
+    }
+
+    public String getPlaceName() {
+        return placeName;
+    }
+
+    public void setPlaceName(String placeName) {
+        this.placeName = placeName;
     }
 
     public int getPost_id() {

@@ -25,6 +25,7 @@ public class MapDAO {
         public Map mapRow(ResultSet resultSet, int rowNum) throws SQLException {
             Map map= new Map();
             map.setPost_id(resultSet.getInt("post_id"));
+            map.setPlaceName(resultSet.getString("placeName"));
             map.setX_coordinate(resultSet.getDouble("x_coordinate"));
             map.setY_coordinate(resultSet.getDouble("y_coordinate"));
 
@@ -33,8 +34,10 @@ public class MapDAO {
     }
     private static final String GET_ALL_MAPS = "SELECT * FROM `map`";
     private static final String GET_BY_ID = "SELECT * FROM `map` WHERE post_id=?";
-    private static final String INSERT_MAP   = "INSERT INTO `map` values(?,?,?)";
-    private static final String UPDATE_MAP   = "UPDATE `map` SET x_coordinate = ? , y_coordinate = ? WHERE post_id = ?";
+
+    private static final String INSERT_MAP   = "INSERT INTO `map` values(?,?,?,?)";
+    private static final String UPDATE_MAP   = "UPDATE `map` SET placeName = ? , x_coordinate = ? , y_coordinate = ? WHERE post_id = ?";
+
     private static final String DELETE_MAP   = "DELETE FROM `map` WHERE post_id = ?";
 
 
@@ -47,12 +50,13 @@ public class MapDAO {
         return jdbcTemplate.queryForObject(GET_BY_ID,new MapMapper(),mapId);
     }
 
-    public void addMap(int post_id,double x_coordinate,double y_coordinate){
-        jdbcTemplate.update(INSERT_MAP,post_id,x_coordinate,y_coordinate);
+    public void addMap(int post_id,String placeName,double x_coordinate,double y_coordinate){
+        jdbcTemplate.update(INSERT_MAP,post_id,placeName,x_coordinate,y_coordinate);
     }
 
-    public void updateMap(int post_id,double x_coordinate,double y_coordinate){
-        jdbcTemplate.update(UPDATE_MAP,x_coordinate,y_coordinate,post_id);
+    public void updateMap(int post_id,String placeName,double x_coordinate,double y_coordinate){
+        jdbcTemplate.update(UPDATE_MAP,placeName,x_coordinate,y_coordinate,post_id);
+
     }
 
     public void deleteMap(int id){

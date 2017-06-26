@@ -21,10 +21,12 @@ public class PostController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+
+/*    @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView init() throws SQLException {
        return getAllPosts();
-    }
+    }*/
+
 
     @RequestMapping(value = "/allposts", method = RequestMethod.GET)
     public ModelAndView getAllPosts() throws SQLException {

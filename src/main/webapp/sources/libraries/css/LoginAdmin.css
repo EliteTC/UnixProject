@@ -88,3 +88,7 @@ a:hover{
 #moreurl{
     display: none;
 }
+
+.ttl {
+    font-weight: bold;
+}

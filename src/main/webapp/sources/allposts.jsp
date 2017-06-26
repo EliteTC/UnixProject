@@ -48,18 +48,18 @@
             <c:forEach items="${posts}" var="post">
             <div class="col-md-6  center" id="post">
                 <div class="thumbnail">
-                    <div class="photoofplace">
+                    <div class="ttl"><h2>${post.title}</h2></div>
                         <c:set var = "oneph" scope = "session" value = "${0*0}"/>
 
                         <c:forEach items="${post.images}" var="img">
                             <c:if test = "${oneph == 0}">
+                    <div class="photoofplace">
                             <img src="${img.url}" alt="" class="img-responsive center">
                             <c:set var = "oneph" scope = "session" value = "${1*1}"/>
                             </c:if>
+                            </div>
                         </c:forEach>
 
-
-                    </div>
                     <div class="caption">
                         <div class="description">${post.description}</div>
                         <div class="linkondetail text-center"><a href="/post/${post.id}"> Show more  </a> </div>
@@ -72,7 +72,7 @@
 </div>
 
 <div class="container modal col-xs-12" id="addPostForm">
-    <form method="post" action="/" class="center modal-content">
+    <form method="post"  class="center modal-content">
         <span onclick="document.getElementById('addPostForm').style.display='none'" class="close" title="Close Modal">&times;</span>
         <div class="form-group ">
             <label for="placeName">Name of place</label>

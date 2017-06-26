@@ -2,8 +2,16 @@
 -- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
+<<<<<<< HEAD
 -- Host: 127.0.0.1
 -- Generation Time: Jun 24, 2017 at 09:05 PM
+=======
+<<<<<<< HEAD
+=======
+-- Host: 127.0.0.1
+-- Generation Time: Jun 24, 2017 at 09:05 PM
+>>>>>>> a34ce7969580f60617d96a71efe2a0b3af49ed37
+>>>>>>> 41af8d760493e05a741dfbf8d0c329cad6466f62
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -36,7 +44,16 @@ CREATE TABLE `image` (
 --
 
 INSERT INTO `image` (`post_id`, `url`) VALUES
+<<<<<<< HEAD
 (2, 'http://ofkiev.com/uploads/posts/2015-05/1433080584_1fd979e9cc81059c2e9bc5ee37665614.jpg');
+=======
+<<<<<<< HEAD
+(4, 'http://ofkiev.com/uploads/posts/2015-05/1433080584_1fd979e9cc81059c2e9bc5ee37665614.jpg'),
+(2, 'http://terrikon.com/i/stadio/dynamo_fantasy.jpg');
+=======
+(2, 'http://ofkiev.com/uploads/posts/2015-05/1433080584_1fd979e9cc81059c2e9bc5ee37665614.jpg');
+>>>>>>> a34ce7969580f60617d96a71efe2a0b3af49ed37
+>>>>>>> 41af8d760493e05a741dfbf8d0c329cad6466f62
 
 -- --------------------------------------------------------
 
@@ -46,6 +63,13 @@ INSERT INTO `image` (`post_id`, `url`) VALUES
 
 CREATE TABLE `map` (
   `post_id` int(11) NOT NULL,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  `placeName` varchar(100) NOT NULL,
+=======
+>>>>>>> a34ce7969580f60617d96a71efe2a0b3af49ed37
+>>>>>>> 41af8d760493e05a741dfbf8d0c329cad6466f62
   `x_coordinate` double NOT NULL,
   `y_coordinate` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -54,8 +78,17 @@ CREATE TABLE `map` (
 -- Dumping data for table `map`
 --
 
+<<<<<<< HEAD
 INSERT INTO `map` (`post_id`, `x_coordinate`, `y_coordinate`) VALUES
 (2, 23, 34);
+=======
+INSERT INTO `map` (`post_id`, `placeName`,`x_coordinate`, `y_coordinate`) VALUES
+(2, 'Lobanovsky Stadium', 50.450252, 30.535111),
+(6, 'Main campus KMA', 50.464370, 30.519123),
+(4, 'Garden of Stones', 50.490956, 30.528926),
+(5, 'Place fo reading. Botan', 50.461049, 30.510160);
+
+>>>>>>> 41af8d760493e05a741dfbf8d0c329cad6466f62
 
 -- --------------------------------------------------------
 
@@ -76,8 +109,20 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`id`, `date`, `title`, `description`, `author`) VALUES
+<<<<<<< HEAD
 (2, '2017-06-24 12:28:28', 'title', 'description', 1),
 (4, '2017-06-24 21:02:23', 'newplace', 'descr', 1);
+=======
+<<<<<<< HEAD
+(2, '2017-06-24 12:28:28', 'Lobanovsky Stadium', 'Named after the most outstanding trainer Dynamo Kyiv', 1),
+(4, '2017-06-24 21:02:23', 'Stones Garden', 'A nice place near the waterfront Obolonska', 1),
+(5, '2017-06-24 23:02:23', 'Library-club', 'You can read books and studing there. The best atmosphere is inspired', 1),
+(6, '2017-07-24 8:30:23', 'NaUKMA', 'Visiting lectures:)', 2);
+=======
+(2, '2017-06-24 12:28:28', 'title', 'description', 1),
+(4, '2017-06-24 21:02:23', 'newplace', 'descr', 1);
+>>>>>>> a34ce7969580f60617d96a71efe2a0b3af49ed37
+>>>>>>> 41af8d760493e05a741dfbf8d0c329cad6466f62
 
 -- --------------------------------------------------------
 
@@ -98,7 +143,16 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `role`, `username`, `login`, `password`) VALUES
+<<<<<<< HEAD
 (1, 'ROLE_USER', 'username', 'login', 'pass');
+=======
+<<<<<<< HEAD
+(1, 'ROLE_USER', 'username', 'login', 'pass'),
+(2, 'ROLE_USER', 'philya', 'philimon', '1111');
+=======
+(1, 'ROLE_USER', 'username', 'login', 'pass');
+>>>>>>> a34ce7969580f60617d96a71efe2a0b3af49ed37
+>>>>>>> 41af8d760493e05a741dfbf8d0c329cad6466f62
 
 --
 -- Indexes for dumped tables
