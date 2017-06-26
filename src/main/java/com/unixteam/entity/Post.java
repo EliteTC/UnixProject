@@ -75,5 +75,16 @@ public class Post implements Serializable{
         this.images = images;
     }
 
-
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", date=" + date +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", author=" + author +
+                ", map=" + map +
+                ", images=" + images +
+                '}';
+    }
 }

@@ -17,7 +17,7 @@ public class MapService {
     private MapDAO mapDAO;
 
     public List<Map> getAllMaps() throws SQLException {
-        return mapDAO.getAllMaps();
+        return mapDAO.getALlMaps();
     }
     public Map getMapById(int mapId) throws  SQLException{
         return mapDAO.getMapById(mapId);

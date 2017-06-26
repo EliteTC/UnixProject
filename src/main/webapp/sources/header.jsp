@@ -74,6 +74,7 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-center">
 				<li ><a href="/home" target="_top"><h4 class=" fontsize">Home</h4></a></li>
+				<li><a href="/allmarkers" target="_top"><h4 class="fontsize">Places on Map</h4></a> </li>
 				<sec:authorize access="hasRole('ROLE_USER')">
 					<li><a href="/user/${userId}" target="_top"><h4 class=" fontsize">My posts</h4></a></li>
 				</sec:authorize>
