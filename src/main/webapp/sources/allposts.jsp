@@ -15,12 +15,13 @@
       href="<c:url value="/sources/libraries/css/LoginAdmin.css"/>">
 
 <div class="row main">
-
+<%--
         <div class="mapa">
             <iframe src="" width="100%" height="450" frameborder="0" style="border:0" ></iframe>
         </div>
 
         <hr>
+        --%>
         <div class="col-xs-10 col-xs-offset-1">
             <sec:authorize access="hasRole('ROLE_USER')">
             <div class="addpostbutton">

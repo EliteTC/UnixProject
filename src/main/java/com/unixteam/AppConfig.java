@@ -23,13 +23,11 @@ public class AppConfig {
         driverManagerDataSource.setUsername(System.getenv("DB_USERNAME"));
         driverManagerDataSource.setPassword(System.getenv("DB_PASSWORD"));
 
-/*
-        driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+/*        driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
         driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/unixproject");
         driverManagerDataSource.setUsername("root");
 //        driverManagerDataSource.setPassword("");
-        driverManagerDataSource.setPassword("1111");
-*/
+        driverManagerDataSource.setPassword("1111");*/
 
         return driverManagerDataSource;
     }

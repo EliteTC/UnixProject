@@ -11,12 +11,13 @@
       href="<c:url value="/sources/libraries/css/postDetails.css"/>">
 <link rel="stylesheet" type="text/css"
       href="<c:url value="/sources/libraries/css/LoginAdmin.css"/>">
+<link rel="stylesheet" type="text/css"
+      href="<c:url value="/sources/libraries/css/map.css"/>">
 <div class="row main">
-<%--<c:if test = "${not empty post.map}">--%>
-    <div class="mapa">
-        <iframe src="" width="100%" height="450" frameborder="0" style="border:0" ></iframe>
-    </div> <hr>
-<%--</c:if>--%>
+
+
+    <div id="map" class="mapPostDet"></div>
+
 <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
     <c:set var = "author" value = "${post.author.id}"/>
     <c:set var = "userid" value = "${userId}"/>

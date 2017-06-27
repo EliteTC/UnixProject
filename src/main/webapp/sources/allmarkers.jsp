@@ -53,7 +53,7 @@
 
             var arrLength = 0;
             <c:forEach items="${markers}" var="mark">
-                locations.push({title: "${mark.placeName}", postName: "${mark.post.title}", placeName: "${mark.placeName}", location: {lat: ${mark.x_coordinate}, lng: ${mark.y_coordinate}}});
+                locations.push({title: "${mark.placeName}", post_id: ${mark.post_id}, postName: "${mark.post.title}", placeName: "${mark.placeName}", location: {lat: ${mark.x_coordinate}, lng: ${mark.y_coordinate}}});
             </c:forEach>
 
             console.log(locations);
@@ -68,6 +68,7 @@
                 //get positions from locations array
                 var position = locations[i].location;
                 var title = locations[i].title;
+                var post_id = locations[i].post_id;
                 var coordX = locations[i].location.lat;
                 var coordY = locations[i].location.lng;
                 var postName = locations[i].postName;
@@ -77,6 +78,7 @@
                     map: map,
                     position: position,
                     title: title,
+                    post_id: post_id,
                     coordX: coordX,
                     coordY: coordY,
                     postName: postName,
@@ -100,10 +102,12 @@
             function populateInfoWindow(marker, infowindow) {
                 if(infowindow.marker != marker){
                     infowindow.marker = marker;
+                    var postLink = "/post/"+marker.post_id;
+                    console.log(postLink);
                     infowindow.setContent('<div id="content"><div id="getNotice">'+
                         marker.placeName + '</div>' +
                             'Coordinates: [' + marker.coordX +', ' + marker.coordY + ']'+
-                        '<div id="articleTitle">'+'<br>Post: '+ marker.postName +'</div>'+'</div>');
+                        '<div id="articleTitle">'+'<br>Post: '+ '<a href=' + postLink +' target="_top">' + marker.postName + '</a>' +'</div>'+'</div>');
 
                     /*var contentString = '<div id="content">'+
                      '<div id="getNotice"></div>'+
@@ -125,4 +129,4 @@
 
 </div>
 
-<%@include file="footer.jsp"%>
+<%--<%@include file="footer.jsp"%>--%>
