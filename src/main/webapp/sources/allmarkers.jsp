@@ -26,8 +26,8 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
     <meta charset="utf-8">
 
-<div id="map">
-
+<div id="map"></div>
+<div class="row main">
     <script>
         var map;
         var markers = [];
@@ -40,11 +40,6 @@
                 zoom: 7
             });
 
-            var contentString = '<div id="content">'+
-                '<div id="getNotice"></div>'+
-                '<img src="">'+
-                '<br>Post: '+'<div id="articleTitle"></div>'+
-                '</div>';
 
             // TODO: create a single infowindow, with your own content.
             // It must appear on the marker
@@ -54,28 +49,42 @@
 
             var bounds = new google.maps.LatLngBounds();
 
-            locations = [
-                {title: 'Головний корпус КМА', location: {lat: 50.464370, lng: 30.519123}},
-                {title: 'Сад Каменів', location: {lat: 50.490956, lng: 30.528926}},
-                {title: 'Місце для читання. Botan', location: {lat: 50.461049, lng: 30.510160}},
-                {title: 'Стадіон Лобановського', location: {lat: 50.450252, lng: 30.535111}}
-            ];
+            var locations = [];
 
+            var arrLength = 0;
+            <c:forEach items="${markers}" var="mark">
+                locations.push({title: "${mark.placeName}", postName: "${mark.post.title}", placeName: "${mark.placeName}", location: {lat: ${mark.x_coordinate}, lng: ${mark.y_coordinate}}});
+            </c:forEach>
+
+            console.log(locations);
             var largeInfowindow = new google.maps.InfoWindow();
-
+            var contentString = '<div id="content">'+
+                '<div id="getNotice"> ${locations[i].placeName}</div>'+
+                '<img src="">'+
+                '<br>Post: '+'<div id="articleTitle">${locations[i].postName}</div>'+
+                '</div>';
             //loop for creating and initialization markers array
             for(var i = 0; i < locations.length; i++){
                 //get positions from locations array
                 var position = locations[i].location;
                 var title = locations[i].title;
+                var coordX = locations[i].location.lat;
+                var coordY = locations[i].location.lng;
+                var postName = locations[i].postName;
+                var placeName = locations[i].placeName;
 
                 var marker = new google.maps.Marker({
                     map: map,
                     position: position,
                     title: title,
+                    coordX: coordX,
+                    coordY: coordY,
+                    postName: postName,
+                    placeName: placeName,
                     animation: google.maps.Animation.DROP,
                     id: 1
                 });
+
                 //push our marker to our array
                 markers.push(marker);
                 //Extend the boudaries of the map for each marker
@@ -91,7 +100,16 @@
             function populateInfoWindow(marker, infowindow) {
                 if(infowindow.marker != marker){
                     infowindow.marker = marker;
-                    infowindow.setContent('<div>' + marker.title + '</div>');
+                    infowindow.setContent('<div id="content"><div id="getNotice">'+
+                        marker.placeName + '</div>' +
+                            'Coordinates: [' + marker.coordX +', ' + marker.coordY + ']'+
+                        '<div id="articleTitle">'+'<br>Post: '+ marker.postName +'</div>'+'</div>');
+
+                    /*var contentString = '<div id="content">'+
+                     '<div id="getNotice"></div>'+
+                     '<img src="">'+
+                     '<br>Post: '+'<div id="articleTitle"></div>'+
+                     '</div>';*/
                     infowindow.open(map, marker);
                     infowindow.setPosition(marker);
                     //make sure that marker property cleared if the window is closed
